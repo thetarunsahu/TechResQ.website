@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechResQ - A Proactive Approach to Safety</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Custom CSS for animations */
+        @keyframes gradient-waves {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .bg-gradient-waves {
+            background-size: 200% 200%;
+            animation: gradient-waves 20s ease infinite;
+        }
+
+        /* Confetti animation */
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+             }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f7931e;
+            opacity: 0;
+            animation: confetti-fall 3s ease-in-out forwards;
+            pointer-events: none;
+            border-radius: 50%;
+        }
+
+        /* Button hover animation */
+        .cta-btn-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        /* Scrolling text */
+        @keyframes scroll-text {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .scrolling-text {
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .scrolling-text p {
+            display: inline-block;
+            animation: scroll-text 30s linear infinite;
+                  }
+
+        /* Dashboard marker animation */
+        @keyframes pulse-marker {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .map-marker {
+            animation: pulse-marker 2s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-200">
+    <div id="confetti-container" class="fixed inset-0 overflow-hidden pointer-events-none z-50"></div>
+    <main>
+        <!-- Landing Page / Hero Section -->
+        <section id="hero" class="relative overflow-hidden min-h-screen flex items-center justify-center p-4 text-center bg-gradient-to-br from-indigo-900 to-gray-950">
+            <div class="absolute inset-0 bg-gradient-waves"></div>
+            <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h1 class="text-4xl sm:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-500 mb-4 animate-pulse">
+                    TechResQ: Preparedness is Power.
+                </h1>
+                <p class="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                    A robust disaster preparedness and response system for schools and colleges.
+                    <br> Be ready. Be safe. Be TechResQ.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#problem-solution" class="cta-btn-hover bg-cyan-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 ease-in-out">
+                        Explore Solution
+                    </a>
+                    <button id="try-demo-btn" class="cta-btn-hover bg-gray-800 text-gray-200 font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 ease-in-out border-2 border-gray-700">
+                        Try Demo
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem & Solution Section -->
+        <section id="problem-solution" class="py-20 bg-gray-900 text-center">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-12">The Problem & Our Solution</h2>
+                <div class="flex flex-col lg:flex-row items-center space-y-12 lg:space-y-0 lg:space-x-12">
+                    <!-- Problem Statement -->
+                    <div class="w-full lg:w-1/2 p-8 bg-gray-800 rounded-3xl shadow-xl border border-gray-700">
+                        <h3 class="text-2xl font-bold text-red-500 mb-4">The Challenge</h3>
+                        <p class="text-lg text-gray-400 mb-4">
+                            Schools and colleges often lack real-time, comprehensive disaster management systems. This leads to slow response times, inefficient resource allocation, and a lack of student and staff preparedness.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 text-gray-300 text-sm">
+                            <div class="flex items-center space-x-2">
+                                <span class="text-xl">🚨</span>
+                                <span>No real-time alerts</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-xl">🗺️</span>
+                                <span>Poor resource mapping</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-xl">📉</span>
+                                <span>Inadequate risk assessment</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-xl">📚</span>
+                                <span>Lack of training</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Solution Demo -->
+                    <div class="w-full lg:w-1/2 p-8 bg-gray-800 rounded-3xl shadow-xl border border-gray-700">
+                        <h3 class="text-2xl font-bold text-green-500 mb-4">The TechResQ Solution</h3>
+                        <div class="flex flex-col items-center">
+                            <div class="relative w-64 h-64 flex items-center justify-center bg-gray-700 rounded-full mb-4 animate-pulse">
+                                <div class="absolute w-48 h-48 bg-gray-600 rounded-full animate-ping"></div>
+                                <span class="text-6xl">✨</span>
+                            </div>
+                            <p class="text-lg text-gray-400">
+                                Our platform provides **AI-powered risk scorecards**, **real-time dashboards**, and **psychological first-aid libraries** to make institutions safer and more resilient.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Features -->
+        <section id="interactive-demo" class="py-20 bg-gray-950 text-center">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-12">Experience TechResQ's Mini-Demo</h2>
+                <div class="bg-gray-800 p-8 rounded-3xl shadow-xl border border-gray-700">
+                    <p class="text-lg text-gray-300 mb-6">
+                        See for yourself! Input details to get an instant risk assessment score for your institution.
+                    </p>
+                    <div id="demo-form" class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
+                        <input type="number" id="building-count" placeholder="No. of Buildings" class="flex-1 p-3 rounded-xl bg-gray-700 text-white placeholder-gray-400 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                        <input type="number" id="student-count" placeholder="No. of Students" class="flex-1 p-3 rounded-xl bg-gray-700 text-white placeholder-gray-400 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                        <button id="get-risk-score-btn" class="bg-cyan-600 text-white font-bold py-3 px-6 rounded-xl cta-btn-hover transition-all duration-300">
+                            Get Risk Score
+                        </button>
+                    </div>
+                    <div id="risk-score-result" class="text-3xl font-bold text-teal-400 opacity-0 transition-opacity duration-500 ease-in-out">
+                        Your institution's risk score is: <span id="score-value"></span>
+                    </div>
+                </div>
+
+                <div class="mt-16">
+                    <h3 class="text-2xl font-extrabold text-white mb-4">How are you feeling about this demo?</h3>
+                    <div id="emoji-selector" class="flex justify-center space-x-6">
+                        <span class="emoji-option text-5xl cursor-pointer hover:scale-125 transition-transform duration-200">😀</span>
+                        <span class="emoji-option text-5xl cursor-pointer hover:scale-125 transition-transform duration-200">😐</span>
+                        <span class="emoji-option text-5xl cursor-pointer hover:scale-125 transition-transform duration-200">😔</span>
+                    </div>
+                    <p id="feedback-message" class="mt-4 text-sm text-gray-400 opacity-0 transition-opacity duration-500">
+                        Thanks for your feedback!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Section -->
+        <section id="impact" class="py-20 bg-gray-900 text-center">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-12">Our Impact in Numbers</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-gray-800 p-8 rounded-3xl shadow-xl border border-gray-700 transform hover:scale-105 transition-transform duration-300 ease-in-out">
+                        <div class="text-5xl font-extrabold text-cyan-400" id="stat1">0</div>
+                        <p class="mt-2 text-gray-400">Lives Saved (Estimated)</p>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-3xl shadow-xl border border-gray-700 transform hover:scale-105 transition-transform duration-300 ease-in-out">
+                        <div class="text-5xl font-extrabold text-teal-400" id="stat2">0</div>
+                        <p class="mt-2 text-gray-400">Response Time Reduced</p>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-3xl shadow-xl border border-gray-700 transform hover:scale-105 transition-transform duration-300 ease-in-out">
+                        <div class="text-5xl font-extrabold text-red-400" id="stat3">0</div>
+                        <p class="mt-2 text-gray-400">Institutions Protected</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Real-Time Dashboard Section -->
+        <section id="dashboard-section" class="py-20 bg-gray-950 text-center">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-12">Real-Time Dashboard</h2>
+                <div class="relative bg-gray-800 p-8 rounded-3xl shadow-xl border border-gray-700">
+                    <div class="relative w-full h-80 overflow-hidden rounded-xl">
+                        <img src="https://placehold.co/1200x600/1e293b/E2E8F0?text=Placeholder+Map" alt="Real-time map placeholder" class="w-full h-full object-cover">
+                        <!-- Live Markers -->
+                        <div class="absolute map-marker top-1/4 left-1/4 w-4 h-4 rounded-full bg-red-500 shadow-xl border-2 border-white transform translate-x-1/2 -translate-y-1/2"></div>
+                        <div class="absolute map-marker top-3/4 left-2/3 w-4 h-4 rounded-full bg-yellow-500 shadow-xl border-2 border-white transform translate-x-1/2 -translate-y-1/2" style="animation-delay: 1s;"></div>
+                        <div class="absolute map-marker top-1/2 left-1/2 w-4 h-4 rounded-full bg-green-500 shadow-xl border-2 border-white transform translate-x-1/2 -translate-y-1/2" style="animation-delay: 2s;"></div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                        <div class="p-4 bg-gray-700 rounded-xl">
+                            <h3 class="text-xl font-bold text-red-400">Affected Schools</h3>
+                            <p class="text-3xl font-extrabold text-white mt-2">12</p>
+                        </div>
+                        <div class="p-4 bg-gray-700 rounded-xl">
+                            <h3 class="text-xl font-bold text-yellow-400">Estimated Losses</h3>
+                            <p class="text-3xl font-extrabold text-white mt-2">₹1.5 Crores+</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Quiz Section -->
+        <section id="quiz-section" class="py-20 bg-gray-900 text-center">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-12">Digital Resilience Hub</h2>
+                <div class="bg-gray-800 p-8 rounded-3xl shadow-xl border border-gray-700">
+                    <div id="quiz-container" class="space-y-6">
+                        <!-- Quiz will be loaded here by JavaScript -->
+                        <p class="text-lg text-gray-300">
+                            Test your preparedness knowledge!
+                        </p>
+                    </div>
+                    <button id="submit-quiz-btn" class="hidden mt-8 bg-cyan-600 text-white font-bold py-3 px-8 rounded-full cta-btn-hover transition-all duration-300">
+                        Submit
+                    </button>
+                    <div id="quiz-result" class="mt-8 text-xl font-bold text-green-400 opacity-0 transition-opacity duration-500"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team & Contact Section -->
+        <section id="contact" class="py-20 bg-gray-950 text-center">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-12">Meet the Team & Get in Touch</h2>
+                <!-- Team Section -->
+                <div class="mb-16">
+                    <h3 class="text-2xl font-bold text-gray-200 mb-8">Our Team</h3>
+                    <div class="flex flex-wrap justify-center gap-8">
+                        <!-- Team Member 1 -->
+                        <div class="flex flex-col items-center">
+                            <div class="w-32 h-32 rounded-full overflow-hidden mb-2 border-4 border-cyan-500 shadow-lg">
+                                <img src="https://placehold.co/128x128/334155/E2E8F0?text=Avatars" alt="Team Member Avatar" class="object-cover w-full h-full">
+                            </div>
+                            <p class="text-lg font-semibold text-gray-100">Team Member</p>
+                            <p class="text-sm text-gray-400">Founder</p>
+                        </div>
+                        <!-- Team Member 2 -->
+                        <div class="flex flex-col items-center">
+                            <div class="w-32 h-32 rounded-full overflow-hidden mb-2 border-4 border-cyan-500 shadow-lg">
+                                <img src="https://placehold.co/128x128/334155/E2E8F0?text=Avatars" alt="Team Member Avatar" class="object-cover w-full h-full">
+                            </div>
+                            <p class="text-lg font-semibold text-gray-100">Team Member</p>
+                            <p class="text-sm text-gray-400">Designer</p>
+                        </div>
+                        <!-- Team Member 3 -->
+                        <div class="flex flex-col items-center">
+                            <div class="w-32 h-32 rounded-full overflow-hidden mb-2 border-4 border-cyan-500 shadow-lg">
+                                <img src="https://placehold.co/128x128/334155/E2E8F0?text=Avatars" alt="Team Member Avatar" class="object-cover w-full h-full">
+                            </div>
+                            <p class="text-lg font-semibold text-gray-100">Team Member</p>
+                            <p class="text-sm text-gray-400">Developer</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Contact Form -->
+                <div class="max-w-lg mx-auto p-8 bg-gray-800 rounded-3xl shadow-xl border border-gray-700">
+                    <h3 class="text-2xl font-bold text-gray-200 mb-6">Send Us a Message</h3>
+                    <form id="contact-form" class="space-y-4">
+                        <input type="text" placeholder="Your Name" class="w-full p-3 rounded-xl bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                        <input type="email" placeholder="Your Email" class="w-full p-3 rounded-xl bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                        <textarea placeholder="Your Message" rows="4" class="w-full p-3 rounded-xl bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500"></textarea>
+                        <button type="submit" class="w-full cta-btn-hover bg-cyan-600 text-white font-bold py-3 rounded-xl shadow-lg transition-all duration-300 ease-in-out">
+                            Send Message
+                        </button>
+                    </form>
+                    <div id="form-message" class="text-green-400 mt-4 opacity-0 transition-opacity"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8">
+        <div class="scrolling-text text-sm text-gray-400 text-center">
+            <p class="inline-block">
+                A Smart India Hackathon 2025 Project • Built by Team TechResQ • "Be prepared for what you cannot predict"
+                <span class="mx-8">|</span>
+                A Smart India Hackathon 2025 Project • Built by Team TechResQ • "Be prepared for what you cannot predict"
+                <span class="mx-8">|</span>
+                A Smart India Hackathon 2025 Project • Built by Team TechResQ • "Be prepared for what you cannot predict"
+            </p>
+        </div>
+        <p class="text-center text-xs text-gray-600 mt-4">&copy; 2025 TechResQ. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript for interactive elements
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const confettiContainer = document.getElementById('confetti-container');
+            const tryDemoBtn = document.getElementById('try-demo-btn');
+            const getRiskScoreBtn = document.getElementById('get-risk-score-btn');
+            const buildingCountInput = document.getElementById('building-count');
+            const studentCountInput = document.getElementById('student-count');
+            const riskScoreResult = document.getElementById('risk-score-result');
+            const scoreValue = document.getElementById('score-value');
+            const stat1 = document.getElementById('stat1');
+            const stat2 = document.getElementById('stat2');
+            const stat3 = document.getElementById('stat3');
+            const emojiOptions = document.querySelectorAll('.emoji-option');
+            const feedbackMessage = document.getElementById('feedback-message');
+            const contactForm = document.getElementById('contact-form');
+            const quizContainer = document.getElementById('quiz-container');
+            const submitQuizBtn = document.getElementById('submit-quiz-btn');
+            const quizResult = document.getElementById('quiz-result');
+            const formMessage = document.getElementById('form-message');
+
+            // --- Confetti Animation ---
+            function createConfetti(x, y) {
+                for (let i = 0; i < 50; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.classList.add('confetti');
+                    confetti.style.left = `${x}px`;
+                    confetti.style.top = `${y}px`;
+                    confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                    confetti.style.animationDelay = `${Math.random() * 0.5}s`;
+                    confetti.style.transform = `translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px)`;
+                    confettiContainer.appendChild(confetti);
+
+                    setTimeout(() => confetti.remove(), 3000);
+                }
+            }
+
+            tryDemoBtn.addEventListener('click', (e) => {
+                const rect = tryDemoBtn.getBoundingClientRect();
+                const x = rect.left + rect.width / 2;
+                const y = rect.top + rect.height / 2;
+                createConfetti(x, y);
+                // Scroll to the interactive section
+                document.getElementById('interactive-demo').scrollIntoView({ behavior: 'smooth' });
+            });
+
+            // --- Mini-Demo Prototype ---
+            getRiskScoreBtn.addEventListener('click', () => {
+                const buildings = parseInt(buildingCountInput.value) || 0;
+                const students = parseInt(studentCountInput.value) || 0;
+                let riskScore = 0;
+
+                // Simple risk score calculation logic
+                if (buildings > 10 && students > 500) {
+                    riskScore = Math.floor(Math.random() * 30) + 70; // High risk
+                } else if (buildings > 5 && students > 200) {
+                    riskScore = Math.floor(Math.random() * 30) + 40; // Medium risk
+                } else {
+                    riskScore = Math.floor(Math.random() * 40); // Low risk
+                }
+
+                scoreValue.textContent = riskScore;
+                riskScoreResult.classList.remove('opacity-0');
+            });
+
+            // --- Mood/Feedback Input ---
+            emojiOptions.forEach(emoji => {
+                emoji.addEventListener('click', () => {
+                    emojiOptions.forEach(e => e.classList.remove('scale-125', 'ring-2', 'ring-cyan-500'));
+                    emoji.classList.add('scale-125', 'ring-2', 'ring-cyan-500');
+                    feedbackMessage.classList.remove('opacity-0');
+                });
+            });
+
+            // --- Animated Counters for Impact Section ---
+            const counter = (element, target) => {
+                let current = 0;
+                const increment = target / 100;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    element.textContent = Math.floor(current) + (element.id === 'stat2' ? '%' : '');
+                }, 10);
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        counter(stat1, 1500);
+                        counter(stat2, 85);
+                        counter(stat3, 250);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            observer.observe(document.getElementById('impact'));
+
+            // --- Quiz Logic ---
+            const quizzes = [
+                {
+                    question: "What should be the first step during a disaster?",
+                    options: ["Panic", "Find a safe place", "Call your friends", "Take photos"],
+                    answer: "Find a safe place"
+                },
+                {
+                    question: "Where should you hide during an earthquake?",
+                    options: ["Near a window", "Under a sturdy table", "Inside an elevator", "In an open field"],
+                    answer: "Under a sturdy table"
+                },
+                {
+                    question: "Which number should you call in case of a fire?",
+                    options: ["100", "101", "102", "108"],
+                    answer: "101"
+                }
+            ];
+
+            function loadQuiz() {
+                quizContainer.innerHTML = '';
+                quizzes.forEach((quiz, index) => {
+                    const questionDiv = document.createElement('div');
+                    questionDiv.classList.add('text-left', 'bg-gray-700', 'p-6', 'rounded-xl', 'border', 'border-gray-600');
+                    
+                    questionDiv.innerHTML = `
+                        <p class="text-lg font-semibold text-white mb-4">
+                            ${index + 1}. ${quiz.question}
+                        </p>
+                        <div class="space-y-2">
+                            ${quiz.options.map(option => `
+                                <label class="block cursor-pointer">
+                                    <input type="radio" name="quiz-q${index}" value="${option}" class="mr-2">
+                                    <span class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">
+                                        ${option}
+                                    </span>
+                                </label>
+                            `).join('')}
+                        </div>
+                    `;
+                    quizContainer.appendChild(questionDiv);
+                });
+                submitQuizBtn.classList.remove('hidden');
+            }
+
+            loadQuiz();
+
+            submitQuizBtn.addEventListener('click', () => {
+                let score = 0;
+                let allCorrect = true;
+                quizzes.forEach((quiz, index) => {
+                    const selectedOption = document.querySelector(`input[name="quiz-q${index}"]:checked`);
+                    if (selectedOption && selectedOption.value === quiz.answer) {
+                        score++;
+                    } else {
+                        allCorrect = false;
+                    }
+                });
+
+                quizResult.textContent = `Your Score is: ${score} / ${quizzes.length}`;
+                if (allCorrect) {
+                    quizResult.textContent += " 🎉 You are a Disaster Master!";
+                }
+                quizResult.classList.remove('opacity-0');
+            });
+
+            // --- Contact Form Submission ---
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                formMessage.textContent = 'Message sent! Thanks for your interest.';
+                formMessage.classList.remove('opacity-0');
+                contactForm.reset();
+                setTimeout(() => {
+                    formMessage.classList.add('opacity-0');
+                }, 3000);
+            });
+        });
+    </script>
+</body>
+</html>
